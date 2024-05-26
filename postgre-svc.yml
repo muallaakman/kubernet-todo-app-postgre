@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgre-service
+  labels: 
+    name: postgre-service
+    app: todoapp
+spec:
+  selector:
+     name: postgre
+  type: ClusterIP   
+  ports:
+    - name: db
+      port: 5432
+      targetPort: 5432

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clarustodo
+  labels:
+    app: todoapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: postgre
+  template:
+    metadata:
+      labels:
+        name: postgre
+        app: todoapp
+    spec:
+      containers:
+      - name: postgre
+        image: olivercw/postgres
+        ports:
+        - containerPort: 5432
+        env:
+          - name: POSTGRES_PASSWORD
+            value: Pp123456789
+        resources: {}
+

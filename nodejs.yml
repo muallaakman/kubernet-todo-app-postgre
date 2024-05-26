@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs
+  labels:
+    app: todoapp 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: nodejs
+  template:
+    metadata:
+      labels:
+        name: nodejs
+        app: todoapp
+    spec:
+      containers: 
+        - image: olivercw/nodejs
+          name: nodejs
+          ports: 
+            - containerPort: 5000
+          resources: {}
+
+          
+         
